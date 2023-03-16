@@ -33,30 +33,19 @@ namespace LINQ.Logic
         }
 
 
-        public List<string> JoinConOrders()
+        public List<CustomerXOrders> CustomerXOrder()
         {
-            List<string> tmpList = new List<string>();
-            DateTime a = new DateTime(01/01/1997);
+            return (from Customers in _context.Customers
+                    join Orders in _context.Orders
+                    on Customers.CustomerID equals Orders.CustomerID
 
-            var Query = from Customers in _context.Customers
-                        join Orders in _context.Orders
-                        on Customers.CustomerID equals Orders.CustomerID
-
-                        where Customers.Region == "WA" && Orders.OrderDate.Value.Year >= 1997
-                        select new
-                        {
-                            Customers.ContactName,
-                            Customers.Region,
-                            Orders.OrderDate
-                        };
-
-
-            foreach (var item in Query)
-            {
-                tmpList.Add($"Nombre: {item.ContactName}, Region: {item.Region} , Fecha: {item.OrderDate}");
-            }
-
-            return tmpList;
+                    where Customers.Region == "WA" && Orders.OrderDate.Value.Year >= 1997
+                    select new CustomerXOrders
+                    {
+                        cliente = Customers.ContactName,
+                        region = Customers.Region,
+                        fechaOrden = Orders.OrderDate.Value
+                    }).ToList();
 
         }
 

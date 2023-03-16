@@ -57,20 +57,15 @@ namespace LINQ.Logic
                     select Products).ToList();
         }
 
-        public List<String> ProductoXCategoria()
+        public List<ProductoXCategoria> ProductoXCategoria()
         {
-            List<String> tmpList = new List<String>();
-            var query = (from Products in _context.Products
+            return (from Products in _context.Products
                          join Categories in _context.Categories
                          on Products.CategoryID equals Categories.CategoryID
-                         select new { Products.ProductID , Products.ProductName, Categories.CategoryName
-                         });
+                         select new ProductoXCategoria{ id=Products.ProductID , 
+                         producto=Products.ProductName, categoria= Categories.CategoryName}).ToList();
 
-            foreach (var item in query)
-            {
-                tmpList.Add($"ID: {item.ProductID} , Producto: {item.ProductName} , Categoria: {item.CategoryName}");
-            }
-            return tmpList;
+
         }
 
         public Products PrimerProducto(List<Products> lista)

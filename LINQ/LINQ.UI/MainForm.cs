@@ -44,17 +44,6 @@ namespace LINQ.UI
                 lstGenerica.Items.Add($"ID: {item.CustomerID} Nombre: {item.ContactName}, Region: {item.Region}");
             }
         }
-
-        private void LlenarString(string textolbl, List<String> lstring)
-        {
-            lstGenerica.Items.Clear();
-            lblMostrar.Text = textolbl;
-            foreach (var item in lstring)
-            {
-                lstGenerica.Items.Add(item);
-            }
-        }
-
         private void btnEJ1_Click(object sender, EventArgs e)
         {
             lstGenerica.Items.Clear();
@@ -110,14 +99,22 @@ namespace LINQ.UI
         {
             lstGenerica.Items.Clear();
             CustomerLogic clogic = new CustomerLogic();
-            LlenarString("Nombres de clienets en Mayusculas y minusculas", clogic.GetUpperAndLower());
+            lblMostrar.Text = "Nombres de clienets en Mayusculas y minusculas";
+            foreach (var item in clogic.GetUpperAndLower())
+            {
+                lstGenerica.Items.Add(item);
+            }
         }
 
         private void btnEJ7_Click(object sender, EventArgs e)
         {
             lstGenerica.Items.Clear();
             CustomerLogic clogic = new CustomerLogic();
-            LlenarString("Clientes con region WA con ordenes mayores a 1/1/1997.", clogic.JoinConOrders());
+            lblMostrar.Text = "Clientes con region WA con ordenes mayores a 1/1/1997";
+            foreach(var item in clogic.CustomerXOrder())
+            {
+                lstGenerica.Items.Add($"{item.cliente} , Region: {item.region}, Fecha Orden: {item.fechaOrden}");
+            }
         }
 
         private void btnEJ8_Click(object sender, EventArgs e)
@@ -146,7 +143,12 @@ namespace LINQ.UI
         {
             lstGenerica.Items.Clear();
             ProductLogic plogic = new ProductLogic();
-            LlenarString("Productos joineados a categorias", plogic.ProductoXCategoria());
+            lblMostrar.Text = "Productos joineados a categorias";
+            
+            foreach (var item in plogic.ProductoXCategoria())
+            {
+                lstGenerica.Items.Add($"ID: {item.id} , Producto: {item.producto} , Categoria: {item.categoria}");
+            }
         }
 
         private void btnEJ12_Click(object sender, EventArgs e)
