@@ -1,0 +1,152 @@
+*{
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+
+body{
+    height: 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #06283D;
+    flex-direction: column;
+}
+
+
+button{
+    background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+    cursor: pointer;
+    text-align: center;
+    transition: box-shadow .1s ease-in-out;
+}
+
+button:hover {
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+  }
+
+
+
+.maximo-txt{
+    color: white;
+}
+
+.contenedor-principal{
+    height: 35rem;
+    width: 60rem;
+    border-radius: 5vh;
+    background-color: white;
+}
+
+
+/* Cuadro principal */
+
+.superior{
+    background-color: #1A202C;
+    height: 10rem;
+    width: 60rem;
+    border-top-left-radius: 4vh;
+    border-top-right-radius: 4vh;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+#max-number{
+    color: black;
+    font-size: 6rem;    
+    margin-top: 5rem;
+}
+
+
+.btn-sup{
+    border-radius: 2rem;
+    width: 5rem;
+    height: 5rem;
+    margin: 3rem 2rem 0rem 2rem;
+    font-size: 4rem;
+}
+
+/* Animacion boton*/
+
+
+.input-container{
+    background-color: white;
+    height: 8rem;
+    width: 8rem;
+    border-radius: 50%;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Parte inferior */
+.inferior{
+    background-color: #2E3748;
+    height: 25rem;
+    width: 60rem;
+    border-bottom-left-radius:4vh;
+    border-bottom-right-radius:4vh;
+    display: flex;
+    flex-direction: row;
+}
+
+
+/* Parte inferior IZQUIERDA*/
+
+.inf-izq{
+    background-color: #1E2430;
+    height: 25rem;
+    width: 20rem;
+    border-bottom-left-radius:4vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#txtError{
+    color: red;
+}
+
+#btn-probar{
+
+    border-radius: 2rem;
+    width: 8rem;
+    height: 3rem;
+    margin-top: 1.5rem;
+}
+
+#numInput{
+    width: 10rem;
+    height: 3rem;
+    text-align: center;
+    color: black;
+    font-size: 2rem ;
+}
+
+.ingresa-txt{
+    color:white;
+    margin-top: 6rem;
+}
+
+/* Parte inferior DERECHA*/
+.inf-der{
+    display: flex;
+    flex-direction: column;
+    margin-left: 3rem;
+}
+
+
+#btn-reintentar{
+    height: 2.5rem;
+    width: 7.5rem;
+    background-color: red;
+    margin-left: 28rem;
+    margin-top: 2rem;
+    border-radius: 1rem;
+}
+
+
+
+

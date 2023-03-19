@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <title>Adivina el numero</title>
+</head>
+
+<body>
+    <h1 class="maximo-txt">Adivinando un numero entre 1 a:  </h1>
+    <div class="contenedor-principal">
+        <div class="superior">
+            <button class="btn-sup" id="btn-menos"> < </button>
+            <div class="input-container">
+                <h1 id="max-number">1</h1>
+            </div>
+            <button class="btn-sup" id="btn-mas"> > </button>
+        </div>
+        <div class="inferior">
+            <div class="inf-izq">
+                <h1 class="ingresa-txt">Ingresar un numero</h1>
+
+                <input id="numInput" type="number" min="1" max="99" value="1" oninput="validity.valid||(value=99)";>
+
+                <p id="txtError">Por favor, ingresa un numero.</p>
+                <button id="btn-probar">Probar suerte</button>
+            </div>  
+            <div class="inf-der">
+                <h1 id="resultado">Proba suerte, ingresa un numero! 🍀</h1>
+                <h1 id="vidas">💖 10</h1>
+                <h1 id="score">Score: 0</h1>
+                <h1 id="highscore">Highscore: 0</h1>
+                <button id="btn-reintentar">Reintentar</button>
+            </div>
+        </div>
+        </section>
+
+        <script src="script.js"></script>
+
+</body>
+
+</html>
