@@ -10,7 +10,7 @@ var btnReintentar = document.getElementById("btn-reintentar") ;
 var btnProbar = document.getElementById("btn-probar");
 var msgVidas = document.getElementById("vidas");
 var btnInput  = document.getElementById("numInput");
-var highscore = document.getElementById("highscore");
+var highscoretxt = document.getElementById("highscore");
 var score = document.getElementById("score");
 
 // SETUP    
@@ -19,7 +19,8 @@ msgError.style.visibility = "hidden";
 var notPlaying = true;
 var vidas = 10;
 msgVidas.textContent = "💖 " + vidas;
-
+var highscore = 0;
+var currentScore = 1260;
 
 // EVENTOS
 
@@ -55,6 +56,7 @@ btnProbar.addEventListener("click", function () {
 
     msgError.style.visibility = "hidden";
     console.log("input= ",btnInput.value);
+    console.log("highscore=",highscore);
 
     if (btnInput.value == ""){
         msgError.style.visibility = "visible";
@@ -88,7 +90,8 @@ btnReintentar.addEventListener("click", function () {
 function CheckVidas() {
     vidas--;
     msgVidas.textContent = "💖 " + vidas
-    score.textContent = "Score: " + vidas*126
+    currentScore = vidas*126;
+    score.textContent = "Score: " + currentScore.toString();
     if (vidas < 1 ) {
         Perdiste();
     }
@@ -112,11 +115,21 @@ function Reset(){
     CheckVidas();
     score.textContent = "Score: 0";
     msg.textContent = "Proba suerte, ingresa un numero! 🍀"
+    currentScore = 1260;
 }
 
 function ganaste(){
+    
     alert("Ganaste!");
-    highscore.textContent = "Highscore: " + vidas*126;
     notPlaying = false;
     msg.textContent = "Ganaste! Una partida mas! 🎉";
+    
+    if (highscore<currentScore){
+        highscore = currentScore;
+        highscoretxt.textContent = "Highscore: " + currentScore.toString();
+        console.log("nuevo record");
+    }
+    
+
+
 }
