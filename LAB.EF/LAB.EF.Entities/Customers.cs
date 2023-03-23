@@ -16,6 +16,7 @@ namespace LAB.EF.Entities
         }
 
         [Key]
+
         [StringLength(5)]
         public string CustomerID { get; set; }
 

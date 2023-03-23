@@ -22,9 +22,9 @@ namespace LAB.EF.Logic
             return _context.Customers.ToList();
         }
 
-        public List<Customers> GetById(string id)
+        public Customers GetById(string id)
         {
-           return _context.Customers.Where(c => c.CustomerID == id).ToList();
+           return _context.Customers.FirstOrDefault(c => c.CustomerID == id);
         }
 
         public void Add(Customers newCustomer)
@@ -35,15 +35,23 @@ namespace LAB.EF.Logic
 
         public void Delete(string id)
         {
-            var aEliminar = _context.Customers.Find(id);
-            _context.Customers.Remove(aEliminar);
-            _context.SaveChanges();
+            try
+            {
+                var aEliminar = _context.Customers.Find(id);
+                _context.Customers.Remove(aEliminar);
+                _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
         }
 
         public void Update(Customers toUpdate)
         {
             var clienteUpdate = _context.Customers.Find(toUpdate.CustomerID);
-            clienteUpdate.ContactName = toUpdate.ContactName;
+            clienteUpdate.CompanyName = toUpdate.CompanyName;
             clienteUpdate.City = toUpdate.City;
             _context.SaveChanges();
         }

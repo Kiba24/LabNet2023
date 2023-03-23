@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using LAB.EF.Entities;
 using LAB.EF.Logic;
-using LAB.EF.Entities;
 using LAB.EF.UI.Forms;
+using System;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace LAB.EF.UI
 {
@@ -32,14 +26,7 @@ namespace LAB.EF.UI
         {
             try
             {
-
-                ProveedoresLogic proveLogic = new ProveedoresLogic();
                 ClientesLogic clientesLogic = new ClientesLogic();
-                foreach (var prov in proveLogic.GetAll())
-                {
-                    dgvEmpleados.Rows.Add(prov.SupplierID.ToString(),prov.ContactName,prov.CompanyName,prov.ContactTitle,prov.City);
-                }
-
                 foreach(var c in clientesLogic.GetAll())
                 {
                     dgvClientes.Rows.Add(c.CustomerID, c.CompanyName, c.ContactName, c.City);
@@ -72,7 +59,7 @@ namespace LAB.EF.UI
             {
                 ClientesLogic clientesLogic = new ClientesLogic();
                 string index = dgvClientes.SelectedCells[0].Value.ToString();
-                Customers selected = clientesLogic.GetById(index).First();
+                Customers selected = clientesLogic.GetById(index);
                 ////Obtengo el objeto tipo cliente para pasarlo por parametro al update
 
 
@@ -119,7 +106,6 @@ namespace LAB.EF.UI
         private void RefrescarTablas()
         {
             dgvClientes.Rows.Clear();
-            dgvEmpleados.Rows.Clear();
             CargarTablas();
         }
     }
