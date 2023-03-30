@@ -1,5 +1,8 @@
-<form [formGroup]="clientesForm" (submit)="enviarSubmit()">
+<button type="button" class="btn btn-info btn-small" [routerLink]="['/']">
+  <i class="bi bi-arrow-left"></i>
+</button>
 
+<form [formGroup]="clientesForm" (submit)="enviarSubmit()">
 
   <div class="form-group">
     <label class="form-label mt-4" for="inputValid">ID:</label>
@@ -7,8 +10,13 @@
     [ngClass]="{'is-valid': clientesForm.get('id')?.valid,
     'is-invalid' :clientesForm.get('id')?.invalid }"
     [readOnly]="onModify"
-    [value]="onModify ? clienteObject.id : '' "
-    >
+    [value]="onModify ? clienteObject.id : '' " >
+
+    <div *ngIf="clientesForm.get('id')?.invalid" class="invalid-feedback">
+      El nombre de usuario no puede ser nulo ni tener mas de 5 caracteres.
+    </div>
+
+
     
 
     <label class="form-label mt-4" for="inputValid">Compania:</label>
@@ -17,14 +25,28 @@
     'is-valid': clientesForm.get('compania')?.valid }"
     [value]="onModify ? clienteObject.Compania : '' ">
 
-    <label class="form-label mt-4" for="inputValid">Compania:</label>
-    
+
+    <div *ngIf="clientesForm.get('compania')?.invalid" class="invalid-feedback">
+      El nombre de la compania no puede ser nulo. 
+    </div>
+
+    <label class="form-label mt-4" for="inputValid">Ciudad:</label>
     <input type="text" formControlName="ciudad" class="form-control" 
     [ngClass]="{'is-valid': clientesForm.get('ciudad')?.valid,
     'is-invalid' :clientesForm.get('ciudad')?.invalid }"
     [value]="onModify ? clienteObject.ciudad : '' ">
+    
+    <div *ngIf="clientesForm.get('ciudad')?.invalid" class="invalid-feedback">
+      El nombre de la ciudad no puede ser nulo. 
+    </div>
+
   </div>
 
+
+
+
+
+    
   <div class="botonSubmit">
     <button type="submit" class="btn btn-primary" [disabled]="clientesForm.invalid">Enviar</button>
   </div>
