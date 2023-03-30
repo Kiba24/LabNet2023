@@ -7,10 +7,11 @@ using System.Net.Http;
 using System.Web.Http;
 using Newtonsoft.Json;
 using LAB.EF.API.Models;
-
+using System.Web.Http.Cors;
 
 namespace LAB.EF.API.Controllers
 {
+    [EnableCors("*","*","*")]
     public class CustomersController : ApiController
     {
         [HttpGet]

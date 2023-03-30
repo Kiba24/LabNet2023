@@ -31,9 +31,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "bootswatch/dist/lux/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "@popperjs/core/dist/umd/popper.min.js",
+              "bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {

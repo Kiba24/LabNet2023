@@ -1,0 +1,31 @@
+<form [formGroup]="clientesForm" (submit)="enviarSubmit()">
+
+
+  <div class="form-group">
+    <label class="form-label mt-4" for="inputValid">ID:</label>
+    <input type="text" formControlName="id" class="form-control"
+    [ngClass]="{'is-valid': clientesForm.get('id')?.valid,
+    'is-invalid' :clientesForm.get('id')?.invalid }"
+    [readOnly]="onModify"
+    [value]="onModify ? clienteObject.id : '' "
+    >
+    
+
+    <label class="form-label mt-4" for="inputValid">Compania:</label>
+    <input type="text" formControlName="compania" class="form-control" 
+    [ngClass]="{'is-invalid' :clientesForm.get('compania')?.invalid,
+    'is-valid': clientesForm.get('compania')?.valid }"
+    [value]="onModify ? clienteObject.Compania : '' ">
+
+    <label class="form-label mt-4" for="inputValid">Compania:</label>
+    
+    <input type="text" formControlName="ciudad" class="form-control" 
+    [ngClass]="{'is-valid': clientesForm.get('ciudad')?.valid,
+    'is-invalid' :clientesForm.get('ciudad')?.invalid }"
+    [value]="onModify ? clienteObject.ciudad : '' ">
+  </div>
+
+  <div class="botonSubmit">
+    <button type="submit" class="btn btn-primary" [disabled]="clientesForm.invalid">Enviar</button>
+  </div>
+</form>   

@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace LAB.EF.MVC.Controllers
 {
+
     public class CustomersController : Controller
     {
         // GET: Customers
