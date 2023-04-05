@@ -14,3 +14,7 @@
 * HTML,CSS,JS
 * ANGULAR
 
+### Aclaraciones
+```
+[Cada rama pone en practica alguno de los skills]
+[Every branch corresponds to one (or more) skills]
