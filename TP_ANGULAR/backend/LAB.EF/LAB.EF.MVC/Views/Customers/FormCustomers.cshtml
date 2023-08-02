@@ -1,0 +1,47 @@
+﻿@model LAB.EF.MVC.Models.CustomerViewModel
+
+
+@{
+    if (ViewBag.EsInsert) {  ViewBag.Title = "Nuevo Cliente"; }
+    else { ViewBag.Title = "Editando Cliente ID: " + Model.id; }
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    if (ViewBag.EsInsert)
+    {
+        <div>
+            @Html.Label("ID: ")
+            <br>
+            @Html.TextBoxFor(m => m.id,null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.id, "", new { @class = "text-danger" })
+
+        </div>
+    }
+
+    else
+    {
+    <div>
+        <input class="form-control" id="disabledInput" type="text" placeholder="ID: @Model.id" disabled>
+    </div>
+    }
+
+    <div>
+        @Html.Label("Compania: ")
+        @Html.TextBoxFor(m => m.Compania,null, new {@class = "form-control"})
+        @Html.ValidationMessageFor(m => m.Compania, null, new { @class = "text-danger" })
+
+    </div>
+
+    <div>
+        @Html.Label("Ciudad: ")
+        @Html.TextBoxFor(m => m.ciudad,null, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ciudad, "", new { @class = "text-danger" })
+    </div>
+
+    <br>
+    <input class="btn btn-success" type="submit" value="Enviar" />
+}
+

@@ -1,0 +1,23 @@
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Compania</th>
+        <th scope="col">Ciudad</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listClientes" class="table-primary">
+        <td>{{item.id}}</td>
+        <td>{{item.Compania}}</td>
+        <td>{{item.ciudad}}</td>
+        <td>
+          <button class="btn btn-warning" style="margin-right: 1rem;" [routerLink]="['/form/Modify', item.id]">Modificar</button> 
+          <button class="btn btn-danger" (click)="eliminarCliente(item.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  

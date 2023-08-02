@@ -1,0 +1,61 @@
+﻿@model List<LAB.EF.MVC.Models.CustomerViewModel>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="text-align:center; margin-bottom:4rem;">Lista de clientes</h2>
+
+
+<div class="InsertContainer">
+
+
+<button type="button" class="btn btn-primary btn-lg">@Html.ActionLink("Insertar Cliente", "Insertar" , null, new
+                                         {
+                                             @class = "my-class"
+                                         })</button>
+</div>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Compania</td>
+            <td>Ciudad</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.id</td>
+                    <td>@item.Compania</td>
+                    <td>@item.ciudad</td>
+                    <td>
+                    <button class="btn btn-danger">@Html.ActionLink("Eliminar","Eliminar", new {id = item.id.Trim()} ,
+                                                                                            new {@class = "my-class" })</button>
+                    </td>
+                    <td>
+                    <button class="btn btn-warning">@Html.ActionLink("Editar", "Editar", new { id = item.id.Trim() }, 
+                                                                                        new {@class = "my-class"})</button>
+                    </td>
+                </tr>
+            }
+    </tbody>
+
+</table>
+
+<style>
+
+    a.my-class{
+        color:white;
+        text-decoration:none;
+    }
+
+    .InsertContainer{
+        display:flex;
+        justify-content:right;
+        margin-right:11rem;
+    }
+
+</style>
